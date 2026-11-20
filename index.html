@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<!--
+    HOME PAGE
+    Hero banner, shop section (product cards) and about section.
+-->
+<!-- Ensures all elements use English as the default language -->
+<html lang="en">
+<head>
+    <!-- Tells the webpage to use UTF-8 character encoding -->
+    <meta charset="UTF-8">
+    <!-- Ensures the page displays properly on phones -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Text shown on the browser tab -->
+    <title>Memasuot | Japorms Breaking Norms</title>
+
+    <!-- Loads the Fredoka (headings/buttons), Plus Jakarta Sans (body text) and Noto Sans Tagalog (Baybayin) fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Noto+Sans+Tagalog&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Loads the CSS file -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Allows keyboard users to skip past the navbar when pressing Tab -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- HEADER / NAVBAR -->
+    <header>
+        <!--
+            Uses a sticky Bootstrap navbar to keep the navigation bar visible at the top.
+            Uses a hamburger menu style on small screens.
+        -->
+        <nav class="navbar navbar-expand-lg site-navbar sticky-top" aria-label="Primary Navigation">
+            <div class="container">
+
+                <!-- Logo that links back to the home page when pressed -->
+                <a class="navbar-brand" href="index.html" aria-label="Memasuot Home">
+                    <!--
+                        Loads the Memasuot logo.
+                        Shows the "logo-fallback" text if the logo can't be loaded.
+                    -->
+                    <img src="images/logo.png" alt="Memasuot orange oval brand logo" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                    <span class="logo-fallback" style="display:none;" aria-hidden="true">
+                        memasuot
+                        <!-- Marks the text as Tagalog -->
+                        <span lang="fil-Tglg">ᜋᜒᜋᜐᜓᜂᜆ᜔</span>
+                    </span>
+                </a>
+
+                <!-- Creates the hamburger style menu button for smaller screens -->
+                <button class="navbar-toggler border-warning" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation menu">
+                    <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+                </button>
+
+                <!-- Creates the collapsible links for the hamburger menu -->
+                <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+                    <!-- Creates the links used by both menu styles -->
+                    <ul class="navbar-nav gap-lg-4">
+                        <li class="nav-item">
+                            <!-- "active" and aria-current mark the page the visitor is on -->
+                            <a class="nav-link active" href="index.html" aria-current="page">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <!-- Links the user to the Shop section of the Home page -->
+                            <a class="nav-link " href="index.html#shop">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <!-- Links the user to the About section of the Home page -->
+                            <a class="nav-link" href="index.html#about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <!-- Links the user to the Contact page -->
+                            <a class="nav-link " href="contact.html" >Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main id="main-content">
+        <!--
+            Image carousel;
+            Slides are controlled by the prevSlide(), nextSlide() and setSlide() functions in js/main.js
+        -->
+        <section id="hero-section" class="hero-banner" aria-label="Featured Brand Banner">
+            <!-- Previous and next arrows for the banner -->
+            <button type="button" class="hero-arrow hero-arrow-left" onclick="prevSlide()" aria-label="Previous slide">&#10094;</button>
+            <button type="button" class="hero-arrow hero-arrow-right" onclick="nextSlide()" aria-label="Next slide">&#10095;</button>
+            <h1 id="hero-title">Japorms Breaking Norms</h1>
+            <a href="#about" class="btn-learn-more">Learn More about Memasuot</a>
+
+            <!-- Dots that show which slide the viewer is currently on and lets them choose which specific slide to go to -->
+            <div class="carousel-dots" role="group" aria-label="Banner slide selector">
+                <button type="button" class="dot active" aria-label="Slide 1: Japorms Breaking Norms" aria-pressed="true" onclick="setSlide(0)"></button>
+                <button type="button" class="dot" aria-label="Slide 2: Built for the Everyday Hustle" aria-pressed="false" onclick="setSlide(1)"></button>
+                <button type="button" class="dot" aria-label="Slide 3: Affordable, Durable, Accessible" aria-pressed="false" onclick="setSlide(2)"></button>
+            </div>
+        </section>
+
+        <!--
+            SHOP SECTION
+            Shows all the products with links to the specific product page
+        -->
+        <section id="shop" class="shop-section" aria-labelledby="shop-heading">
+            <div class="container">
+                <h2 id="shop-heading" class="section-heading">Browse our shop!</h2>
+                <div class="row g-5 justify-content-center">
+                    <!--
+                        Product 1
+                        Don't Be Late Tee
+                    -->
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <article class="product-card">
+                            <div class="product-img-box">
+                                <img src="images/product-1.png" alt="Don't Be Late Tee white graphic t-shirt">
+                            </div>
+                            <h3 class="product-title">Don't Be Late Tee</h3>
+                            <p class="product-price">₱499</p>
+                            <a href="product-dont-be-late.html" class="btn-view-product">View Don't Be Late Tee</a>
+                        </article>
+                    </div>
+                    <!--
+                        Product 2
+                        Everyday Comfort Tee
+                    -->
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <article class="product-card">
+                            <div class="product-img-box">
+                                <img src="images/product-2.png" alt="Everyday Comfort Tee white minimalist t-shirt">
+                            </div>
+                            <h3 class="product-title">Everyday Comfort Tee</h3>
+                            <p class="product-price">₱499</p>
+                            <a href="product-everyday-comfort.html" class="btn-view-product">View Everyday Comfort Tee</a>
+                        </article>
+                    </div>
+                    <!--
+                        Product 3
+                        Do Good Work Tee
+                    -->
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <article class="product-card">
+                            <div class="product-img-box">
+                                <img src="images/product-3.png" alt="Do Good Work Tee black typographic t-shirt">
+                            </div>
+                            <h3 class="product-title">Do Good Work Tee</h3>
+                            <p class="product-price">₱499</p>
+                            <a href="product-do-good-work.html" class="btn-view-product">View Do Good Work Tee</a>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--
+            ABOUT SECTION
+            Shows brand logo, a short description of the company and a link to the contact page
+        -->
+        <section id="about" class="about-section" aria-labelledby="about-heading">
+            <div class="container">
+                <h2 id="about-heading" class="section-heading">About Memasuot:</h2>
+                <div class="row align-items-center justify-content-center g-4 mb-4">
+                    <div class="col-12 col-md-4 text-center about-logo">
+                        <!-- Shows the text version of the logo if the image can't be loaded -->
+                        <img src="images/logo.png" alt="Memasuot brand emblem" class="img-fluid" style="max-width: 240px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                        <div class="logo-fallback" style="display:none;" aria-hidden="true">
+                            memasuot
+                            <!-- Baybayin text (not yet marked as Tagalog with lang="fil-Tglg" like the navbar's) -->
+                            <span>ᜋᜒᜋᜐᜓᜂᜆ᜔</span>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-7">
+                        <!-- Short description of the company -->
+                        <p class="about-text mb-0">
+                            Memasuot's vision is to provide good clothing that is affordable, durable, and accessible to the masses. We proudly design clothing for working class adults who require the functional-stylish niche of fashion.
+                        </p>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <!-- Links the user to the Contact page -->
+                    <a href="contact.html" class="btn-cta-olive">Get in Touch</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+            <!-- Copyright notice -->
+            <div>All rights reserved @ Copyright 2026 Memasuot</div>
+            <!-- Links to the legal page -->
+            <div class="d-flex gap-4">
+                <a href="privacy-policy.html#terms">Terms and Conditions</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Loads our own JavaScript for the page's interactive features -->
+    <script src="js/main.js"></script>
+</body>
+</html>
